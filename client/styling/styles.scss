@@ -7,3 +7,9 @@ body {
   background-color: lightpink;
   justify-content: space-between;
 }
+
+.side-nav-container {
+  display: flex;
+  flex-direction: column;
+  background-color: antiquewhite;
+}
