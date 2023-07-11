@@ -4,6 +4,18 @@ const Schema = mongoose.Schema;
 const SALT_WORK_FACTOR = 10;
 const bcrypt = require('bcryptjs');
 
+const MONGO_URI =
+  'mongodb+srv://dkderekkoh:hwtfdMZMfR4lM9tw@solocluster.kmnksqz.mongodb.net/?retryWrites=true&w=majority';
+
+mongoose
+  .connect(MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    dbName: 'MatchMadeReady',
+  })
+  .then(() => console.log('Connected to mongoDB.'))
+  .catch((err) => console.log(err));
+
 const userSchema = new Schema(
   {
     username: { type: String, required: true, unique: true },
@@ -46,3 +58,4 @@ userSchema.methods.comparePassword = function (candidatePassword, cb) {
 };
 
 module.exports = mongoose.model('User', userSchema);
+// hwtfdMZMfR4lM9tw

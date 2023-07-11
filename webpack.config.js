@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  mode: 'development',
+  mode: process.env.NODE_ENV,
   devtool: 'eval-source-map',
   entry: './client/index.js', // Update the entry path
   output: {
