@@ -4,6 +4,8 @@ const Schema = mongoose.Schema;
 const SALT_WORK_FACTOR = 10;
 const bcrypt = require('bcryptjs');
 
+// mongorestore -d=matchMadeReady --uri="mongodb+srv://dkderekkoh:hwtfdMZMfR4lM9tw@solocluster.kmnksqz.mongodb.net/?retryWrites=true&w=majority"
+
 const MONGO_URI =
   'mongodb+srv://dkderekkoh:hwtfdMZMfR4lM9tw@solocluster.kmnksqz.mongodb.net/?retryWrites=true&w=majority';
 

@@ -7,6 +7,7 @@ const PORT = 3000;
 
 // import routers
 const signupRouter = require('./routes/signupRouter');
+const createAccountRouter = require('./routes/createAccountRouter');
 
 // handle json parsing
 app.use(express.json());
@@ -15,15 +16,16 @@ app.use(cookieParser());
 
 // serve a static file to the html.
 app.use(express.static(path.resolve(__dirname, '../client')));
-console.log(path.resolve(__dirname, '../client'));
+
+// route to the signup page:
+app.use('/signup', signupRouter);
+
+app.use('/create-account', createAccountRouter);
 
 // root:
 app.get('/', (req, res) => {
   return res.sendFile(path.resolve(__dirname, '../client/login.html'));
 });
-
-// route to the signup page:
-app.use('/signup', signupRouter);
 
 // 404 handler:
 app.use('*', (req, res) => {
