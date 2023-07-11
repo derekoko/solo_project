@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
   mode: process.env.NODE_ENV,
   devtool: 'eval-source-map',
-  entry: './client/index.js', // Update the entry path
+  entry: './client/scripts/index.js', // Update the entry path
   output: {
     path: path.resolve(__dirname, 'dist'), // Replace with your desired output directory
     publicPath: '/',
@@ -35,6 +35,10 @@ module.exports = {
         secure: false,
       },
       '/assets/**': {
+        target: 'http://localhost:3000/',
+        secure: false,
+      },
+      '/signup/**': {
         target: 'http://localhost:3000/',
         secure: false,
       },

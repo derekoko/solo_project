@@ -26,7 +26,7 @@ const userSchema = new Schema(
     gender: String,
     playStyle: [{ type: Schema.Types.ObjectId, ref: 'style' }],
     games: [{ type: Schema.Types.ObjectId, ref: 'game' }],
-    favorites: [{ type: Schema.Types.ObjectId, ref: 'friend' }],
+    favorites: [{ type: Schema.Types.ObjectId, ref: 'friendsList' }],
     friendsList: [{ type: Schema.Types.ObjectId, ref: 'friend' }],
   },
   { timestamps: true }

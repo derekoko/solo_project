@@ -5,18 +5,28 @@ const fs = require('fs');
 const app = express();
 const PORT = 3000;
 
+// import routers
+const signupRouter = require('./routes/signupRouter');
+
 // handle json parsing
 app.use('*', express.json());
 app.use('*', express.urlencoded({ extended: true }));
 app.use('*', cookieParser());
 
+// serve a static file to the html.
+app.use('/client', express.static(path.resolve(__dirname, '../client')));
 
+// root:
+app.get('/', (res, req) => {
+  return res.sendFile(path.resolve(__dirname, '../client/index/html'));
+});
 
+// route to the signup page:
+app.use('/signup', signupRouter);
 
-
-// sever a static file to the html.
-app.get('/', (req, res) => {
-  res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
+// 404 handler:
+app.use('*', (req, res) => {
+  res.status(404).send('Not Found');
 });
 
 // global error handler

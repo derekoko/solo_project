@@ -5,10 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styling/styles.scss" />
-    <title>Welcome to D-KOH</title>
+    <title>MatchMadeReady</title>
   </head>
   <body>
-    <main id="root"></main>
+    Login
+    <form method="POST" action='/login'>
+    <input name="username" type="text" placeholder="username"></input>
+    <input name="password" type="password" placeholder="password"></input>
+    <input type='submit' value="login">
+  </form>
   </body>
-  <script type="text/javscript" src="./index.js"></script>
+  <a href='./signup'>Sign up</a>
 </html>
