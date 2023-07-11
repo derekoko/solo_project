@@ -9,16 +9,17 @@ const PORT = 3000;
 const signupRouter = require('./routes/signupRouter');
 
 // handle json parsing
-app.use('*', express.json());
-app.use('*', express.urlencoded({ extended: true }));
-app.use('*', cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // serve a static file to the html.
-app.use('/client', express.static(path.resolve(__dirname, '../client')));
+app.use(express.static(path.resolve(__dirname, '../client')));
+console.log(path.resolve(__dirname, '../client'));
 
 // root:
-app.get('/', (res, req) => {
-  return res.sendFile(path.resolve(__dirname, '../client/index/html'));
+app.get('/', (req, res) => {
+  return res.sendFile(path.resolve(__dirname, '../client/login.html'));
 });
 
 // route to the signup page:
@@ -38,7 +39,6 @@ app.use((err, req, res, next) => {
   };
   const errorObj = Object.assign(defaultErr, err);
   console.log(errorObj.log);
-
   return res.status(errorObj.status).json(errorObj.message);
 });
 
