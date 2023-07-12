@@ -7,7 +7,6 @@ const PORT = 3000;
 
 // import routers
 const signupRouter = require('./routes/signupRouter');
-const createAccountRouter = require('./routes/createAccountRouter');
 
 // handle json parsing
 app.use(express.json());
@@ -19,8 +18,6 @@ app.use(express.static(path.resolve(__dirname, '../client')));
 
 // route to the signup page:
 app.use('/signup', signupRouter);
-
-app.use('/create-account', createAccountRouter);
 
 // root:
 app.get('/', (req, res) => {

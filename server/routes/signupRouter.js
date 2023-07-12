@@ -16,7 +16,13 @@ router.post('/', signupController.signup, (req, res) => {
   if (!res.locals.successCreation) {
     return res.status(400).redirect('/signup');
   }
-  return res.status(200).redirect('/create-account');
+  return res.status(200).redirect('/signup/create-account');
+});
+
+router.get('/create-account', (req, res) => {
+  return res.sendFile(
+    path.resolve(__dirname, '../../client/createAccount.html')
+  );
 });
 
 module.exports = router;
