@@ -13,10 +13,8 @@ export default function App() {
       <Route path="/" element={<LoginPage />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/signup/create-account" element={<CreateAccount />} />
-      {/* <Route path="/signup" element={<Signup />} /> */}
     </Routes>
   );
 }
-{
-  /* <PrivateRoute path="/home">{<App />}</PrivateRoute> */
-}
+
+/* <PrivateRoute path="/home">{<App />}</PrivateRoute> */

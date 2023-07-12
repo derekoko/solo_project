@@ -40,10 +40,41 @@ signupController.signup = async function (req, res, next) {
 };
 
 signupController.createAccount = async function (req, res, next) {
-  const { username, profilePicture, gameList } = req.body;
-
-  console.log(req.body);
-  return next();
+  try {
+    const currentId = req.cookies.ssid;
+    const { username, profilePicture, userGame } = req.body;
+    const exist = await User.findOne({ username: username });
+    if (exist) {
+      throw new Error('Username already exists please try another name.');
+    }
+    // const found = await User.findById(currentId);
+    const newUser = {
+      username: username,
+      profilePicture: profilePicture,
+      games: [userGame],
+    };
+    console.log(req.body);
+    await User.findOneAndUpdate(
+      { _id: currentId },
+      {
+        username: username,
+        profilePicture: profilePicture,
+        games: [userGame],
+      },
+      { new: true }
+    );
+    return next();
+  } catch (error) {
+    const newErr = createErr({
+      method: 'createAccount',
+      type: 'POST',
+      err: error,
+    });
+    return next(newErr);
+  }
 };
 
 module.exports = signupController;
+
+//.findOneAndUpdate({_id: properId}, {games: newArr}, options)
+//{ new: true}
