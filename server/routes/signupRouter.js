@@ -8,8 +8,11 @@ const signupController = require('../controllers/signupController');
 // add routers here:
 // serves the signup page the moment they route to signup.
 
+// router.get('/', (req, res) => {
+//   return res.sendFile(path.resolve(__dirname, '../../client/signup.html'));
+// });
 router.get('/', (req, res) => {
-  return res.sendFile(path.resolve(__dirname, '../../client/signup.html'));
+  return res.sendFile(path.resolve(__dirname, '../../client', 'index.html'));
 });
 
 router.post('/', signupController.signup, (req, res) => {

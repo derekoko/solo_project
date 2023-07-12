@@ -14,18 +14,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // serve a static file to the html.
-// app.use(express.static(path.resolve(__dirname, '../client')));
+app.use(express.static(path.resolve(__dirname, '../client')));
 
 // route to the signup page:
 app.use('/signup', signupRouter);
 
 // root:
-// app.get('/', (req, res) => {
-//   return res.sendFile(path.resolve(__dirname, '../client/index.html'));
-// });
-
 app.get('/', (req, res) => {
-  return res.send('hello world');
+  return res.sendFile(path.resolve(__dirname, '../client/index.html'));
 });
 
 // 404 handler:

@@ -19,11 +19,13 @@ import { CreateAccount } from './pages/CreateAccount';
 export default function App() {
   return (
     <Routes>
-      {/* <Route path="/" element={<HeaderContainer />} /> */}
       <Route path="/" element={<LoginPage />} />
       <Route path="/signup" element={<Signup />} />
+      {/* <Route path="/signup" element={<Signup />} /> */}
       <Route path="/create-account" element={<CreateAccount />} />
-      {/* <PrivateRoute path="/home">{<App />}</PrivateRoute> */}
     </Routes>
   );
+}
+{
+  /* <PrivateRoute path="/home">{<App />}</PrivateRoute> */
 }
