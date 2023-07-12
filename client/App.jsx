@@ -2,12 +2,28 @@ import React from 'react';
 import HeaderContainer from './containers/HeaderContainer.jsx';
 import SideNavContainer from './containers/SideNavContainer.jsx';
 import './styling/styles.scss';
+import { Routes, Route } from 'react-router-dom';
+import { LoginPage } from './pages/Login';
+import { Signup } from './pages/Signup';
+import { CreateAccount } from './pages/CreateAccount';
+
+// export default function App() {
+//   return (
+//     <div>
+//       <HeaderContainer />
+//       <SideNavContainer />
+//     </div>
+//   );
+// }
 
 export default function App() {
   return (
-    <div>
-      <HeaderContainer />
-      <SideNavContainer />
-    </div>
+    <Routes>
+      {/* <Route path="/" element={<HeaderContainer />} /> */}
+      <Route path="/" element={<LoginPage />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/create-account" element={<CreateAccount />} />
+      {/* <PrivateRoute path="/home">{<App />}</PrivateRoute> */}
+    </Routes>
   );
 }
