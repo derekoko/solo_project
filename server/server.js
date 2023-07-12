@@ -17,12 +17,7 @@ app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, '../client')));
 
 // route to the signup page:
-app.use('/signup', signupRouter);
-
-// root:
-app.get('/', (req, res) => {
-  return res.sendFile(path.resolve(__dirname, '../client/index.html'));
-});
+app.use('/api/signup', signupRouter);
 
 // 404 handler:
 app.use('*', (req, res) => {

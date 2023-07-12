@@ -25,6 +25,7 @@ signupController.signup = async function (req, res, next) {
         email: email,
         password: password,
       };
+      res.locals.users = newUser;
       await User.create(newUser);
       return next();
     }
@@ -38,6 +39,11 @@ signupController.signup = async function (req, res, next) {
   }
 };
 
-signupController.createAccount;
+signupController.createAccount = async function (req, res, next) {
+  const { username, profilePicture, gameList } = req.body;
+
+  console.log(req.body);
+  return next();
+};
 
 module.exports = signupController;

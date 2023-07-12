@@ -7,22 +7,13 @@ import { LoginPage } from './pages/Login';
 import { Signup } from './pages/Signup';
 import { CreateAccount } from './pages/CreateAccount';
 
-// export default function App() {
-//   return (
-//     <div>
-//       <HeaderContainer />
-//       <SideNavContainer />
-//     </div>
-//   );
-// }
-
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/signup/create-account" element={<CreateAccount />} />
       {/* <Route path="/signup" element={<Signup />} /> */}
-      <Route path="/create-account" element={<CreateAccount />} />
     </Routes>
   );
 }

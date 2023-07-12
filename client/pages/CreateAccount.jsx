@@ -2,18 +2,15 @@ import React from 'react';
 
 export function CreateAccount() {
   return (
-    <div className="create-user-container">
-      Create Your Account!
-      <form method="POST" action="/createAccount">
-        <input name="username" type="text" placeholder="username"></input>
-        <input name="profile-picture" type="file" accept="image/*" placeholder>
-          Upload your profile picture here
-        </input>
-        <input
-          name="user-games"
-          type="password"
-          placeholder="Enter your games here"
-        ></input>
+    <div className="signup-container">
+      Sign up!
+      <form method="POST" action="/api/signup/create-account">
+        Sumbit your username here:
+        <input name="username" type="text" placeholder="Username"></input>
+        upload photo here
+        <input name="profilePicture" type="file"></input>
+        enter your most played game here
+        <input name="gameList" type="text" placeholder="Game"></input>
         <input type="submit" value="create user"></input>
       </form>
     </div>

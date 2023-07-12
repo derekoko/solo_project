@@ -4,7 +4,7 @@ export function Signup() {
   return (
     <div className="signup-container">
       Sign up!
-      <form method="POST" action="/signup">
+      <form method="POST" action="/api/signup">
         <input name="email" type="text" placeholder="email"></input>
         <input name="password" type="password" placeholder="password"></input>
         <input
