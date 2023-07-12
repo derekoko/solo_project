@@ -1,22 +1,27 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 
 // insert controller here:
-const signupController = require('../controllers/signupController');
+const userController = require('../controllers/userController');
 const cookieController = require('../controllers/cookieController');
+const sessionController = require('../controllers/sessionController');
 
 // add routers here:
 // serves the signup page the moment they route to signup.
 
-router.post('/create-account', signupController.createAccount, (req, res) => {
-  return res.sendStatus(200);
+router.post('/create-account', userController.createAccount, (req, res) => {
+  if (res.locals.accountCreated === true) {
+    return res.status(200).redirect('/home');
+  } else {
+    return res.status(404);
+  }
 });
 
 router.post(
   '/',
-  signupController.signup,
+  userController.signup,
   cookieController.setSSIDCookie,
+  sessionController.startSession,
   (req, res) => {
     if (!res.locals.successCreation) {
       return res.status(400).redirect('/signup');

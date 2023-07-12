@@ -2,15 +2,17 @@ import React from 'react';
 import { redirect } from 'react-router-dom';
 
 export function CreateAccount() {
-  const success = async () => {
-    const response = await fetch('/api/signup/create-account');
-    const statusCode = response.status;
-    console.log(` THIS SHOULD BE STATUS CODE ${statusCode}`);
-  };
-  success();
+  // const success = async () => {
+  //   const response = await fetch('/api/signup/create-account', {
+  //     method: 'GET',
+  //   });
+  //   const statusCode = response.status;
+  //   console.log(` THIS SHOULD BE STATUS CODE ${statusCode}`);
+  // };
+  // success();
   return (
     <div className="signup-container">
-      Sign up!
+      Create Profile
       <form method="POST" action="/api/signup/create-account">
         Sumbit your username here:
         <input name="username" type="text" placeholder="Username"></input>

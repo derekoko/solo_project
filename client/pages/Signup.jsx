@@ -14,6 +14,7 @@ export function Signup() {
         ></input>
         <input type="submit" value="create user"></input>
       </form>
+      <a href="./login"></a>
     </div>
   );
 }

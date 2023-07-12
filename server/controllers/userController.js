@@ -10,9 +10,35 @@ const createErr = (errInfo) => {
   };
 };
 
-const signupController = {};
+const userController = {};
 
-signupController.signup = async function (req, res, next) {
+userController.verifyUser = async function (req, res, next) {
+  try {
+    const { email, password } = req.body;
+    const found = await User.findOne({ email: email });
+    if (!found) {
+      res.locals.verified = false;
+      return next();
+    }
+    await found.comparePassword(password, function (err, isMatch) {
+      if (!isMatch) {
+        res.locals.verified = false;
+      } else {
+        res.locals.verified = true;
+      }
+    });
+    return next();
+  } catch (error) {
+    const newErr = createErr({
+      method: 'verifyUser',
+      type: 'verification',
+      err: error,
+    });
+    return next(newErr);
+  }
+};
+
+userController.signup = async function (req, res, next) {
   try {
     const { email, password, confirmPassword } = req.body;
     if (password !== confirmPassword) {
@@ -39,7 +65,7 @@ signupController.signup = async function (req, res, next) {
   }
 };
 
-signupController.createAccount = async function (req, res, next) {
+userController.createAccount = async function (req, res, next) {
   try {
     const currentId = req.cookies.ssid;
     const { username, profilePicture, userGame } = req.body;
@@ -53,7 +79,6 @@ signupController.createAccount = async function (req, res, next) {
       profilePicture: profilePicture,
       games: [userGame],
     };
-    console.log(req.body);
     await User.findOneAndUpdate(
       { _id: currentId },
       {
@@ -63,6 +88,7 @@ signupController.createAccount = async function (req, res, next) {
       },
       { new: true }
     );
+    res.locals.accountCreated = true;
     return next();
   } catch (error) {
     const newErr = createErr({
@@ -74,7 +100,7 @@ signupController.createAccount = async function (req, res, next) {
   }
 };
 
-module.exports = signupController;
+module.exports = userController;
 
 //.findOneAndUpdate({_id: properId}, {games: newArr}, options)
 //{ new: true}

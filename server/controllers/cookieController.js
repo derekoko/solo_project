@@ -15,6 +15,9 @@ cookieController.setSSIDCookie = async function (req, res, next) {
   try {
     const { email } = req.body;
     const found = await User.findOne({ email: email }).exec();
+    if (!found) {
+      return next();
+    }
     res.locals.ssid = found._id.toHexString();
     return next();
   } catch (error) {

@@ -7,6 +7,8 @@ const PORT = 3000;
 
 // import routers
 const signupRouter = require('./routes/signupRouter');
+const loginRouter = require('./routes/loginRouter');
+const sessionController = require('./controllers/sessionController');
 
 // handle json parsing
 app.use(express.json());
@@ -18,6 +20,14 @@ app.use(express.static(path.resolve(__dirname, '../client')));
 
 // route to the signup page:
 app.use('/api/signup', signupRouter);
+app.use('/api/login', loginRouter);
+// if they are verified or not we will send the response values of true or false to the front page.
+app.use('/api', sessionController.isLoggedIn, (req, res) => {
+  if (res.locals.ssid) {
+    return res.status(200).redirect('/home');
+  }
+  return res.sendStatus(400);
+});
 
 // 404 handler:
 app.use('*', (req, res) => {
