@@ -38,6 +38,15 @@ signupController.signup = async function (req, res, next) {
   }
 };
 
-signupController.createAccount;
+signupController.createAccount = async function (req, res, next) {
+  const { username, profilePicture, userGame } = req.body;
+  const found = await User.findOne({ username: username });
+  if (found) {
+    throw new Error('Username already exists please try another name.');
+  }
+  const newUser = {
+    username,
+  };
+};
 
 module.exports = signupController;

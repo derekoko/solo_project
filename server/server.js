@@ -10,7 +10,7 @@ const signupRouter = require('./routes/signupRouter');
 
 // handle json parsing
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded());
 app.use(cookieParser());
 
 // serve a static file to the html.
@@ -18,6 +18,8 @@ app.use(express.static(path.resolve(__dirname, '../client')));
 
 // route to the signup page:
 app.use('/signup', signupRouter);
+
+// route for login:
 
 // root:
 app.get('/', (req, res) => {
