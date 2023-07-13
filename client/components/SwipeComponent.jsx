@@ -1,5 +1,4 @@
 import React from 'react';
-import image from '../assets/images/discord-gold.jpg';
 
 export const SwipeComponenet = ({ swipeUser }) => {
   const currentUser = { ...swipeUser };

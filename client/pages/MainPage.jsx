@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import HeaderContainer from '../containers/HeaderContainer.jsx';
 import { SwipeContainer } from '../containers/SwipeContainer.jsx';
+import FriendsContainer from '../containers/FriendsContainer.jsx';
 
 export const MainPage = () => {
   const [user, setUser] = useState({});
   const [users, setUsers] = useState([]);
+  const [friendClicked, setClick] = useState(false);
 
   useEffect(() => {
     async function fetcher() {
@@ -14,17 +16,30 @@ export const MainPage = () => {
       setUser(user);
     }
     fetcher();
-  }, []);
-  console.log(user);
+  }, [friendClicked]);
+
+  function conditionalLoad() {
+    try {
+      if (!friendClicked) {
+        return <SwipeContainer users={users} user={user} />;
+      } else {
+        return <FriendsContainer user={user} />;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <>
       <header className="header-container">
-        <HeaderContainer user={user} />
+        <HeaderContainer
+          user={user}
+          setFriendClick={setClick}
+          friendClicked={friendClicked}
+        />
       </header>
-      <div className="main-page">
-        <SwipeContainer users={users} user={user} />
-      </div>
+      <div className="main-page">{conditionalLoad()}</div>
     </>
   );
 };
