@@ -1,6 +1,4 @@
 import React from 'react';
-import HeaderContainer from './containers/HeaderContainer.jsx';
-import SideNavContainer from './containers/SideNavContainer.jsx';
 import './styling/styles.scss';
 import { Routes, Route } from 'react-router-dom';
 import { LoginPage } from './pages/Login';

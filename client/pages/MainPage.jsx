@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import HeaderContainer from '../containers/HeaderContainer.jsx';
-import SideNavContainer from '../containers/SideNavContainer.jsx';
 
 export const MainPage = () => {
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetch('/api/home/getData', {
+        type: 'GET',
+      });
+      const response = await data.json();
+      setUser(response);
+    };
+    fetchData();
+  }, []);
+
+  console.log(user);
   return (
     <div>
-      <HeaderContainer />
-      <SideNavContainer />
+      {<div> {user.username} </div>}
+      <HeaderContainer username={user.username} />
     </div>
   );
 };
