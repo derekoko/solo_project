@@ -7,6 +7,10 @@ export const SwipeContainer = ({ users, user }) => {
   return (
     <div className="swipe-container">
       <SwipeComponenet swipeUser={users[index]} />
+      <div className="button-container">
+        <button id="reject"> &#10060;</button>
+        <button id="accept">&#x2705;</button>
+      </div>
     </div>
   );
 };
