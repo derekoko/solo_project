@@ -7,8 +7,6 @@ import { LoginPage } from './pages/Login';
 import { Signup } from './pages/Signup';
 import { CreateAccount } from './pages/CreateAccount';
 import { MainPage } from './pages/MainPage.jsx';
-import { useNavigate } from 'react-router';
-import { useEffect, useState } from 'react';
 
 export default function App() {
   return (

@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const FriendComponenet = ({ user }) => {
+export const FriendComponenet = ({ userData }) => {
   return (
     <div className="user-friend-container">
-      {user.username}
+      {userData.username}
       <div className="friend-info-container">filler</div>
       <div className="status-button-container">filler</div>
     </div>

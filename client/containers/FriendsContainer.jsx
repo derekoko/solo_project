@@ -6,7 +6,7 @@ export default function FriendsContainer({ user }) {
   return (
     <>
       <div className="friends-container">
-        <FriendComponenet user={user} />
+        <FriendComponenet userData={user} />
       </div>
     </>
   );

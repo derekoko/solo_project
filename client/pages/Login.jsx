@@ -24,15 +24,27 @@ export const LoginPage = () => {
   // }, []);
 
   return (
-    <div className="login-container">
-      Login
-      <form method="POST" action="/api/login">
-        <input name="email" type="text" placeholder="Email"></input>
-        <input name="password" type="password" placeholder="password"></input>
-        <input type="submit" value="login"></input>
-      </form>
-      <a href="./signup">Sign up</a>
-    </div>
+    <>
+      <div className="login-main-container">
+        <p id="login-title">MATCHMADE READY</p>
+        <div className="login-container">
+          Login
+          <form method="POST" action="/api/login">
+            <input name="email" type="text" placeholder="Email"></input> <br />
+            <input
+              name="password"
+              type="password"
+              placeholder="password"
+            ></input>
+            <br />
+            <input type="submit" value="login"></input>
+          </form>
+          <a id="signup" href="./signup">
+            Sign up
+          </a>
+        </div>
+      </div>
+    </>
   );
 };
 

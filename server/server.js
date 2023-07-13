@@ -8,8 +8,9 @@ const PORT = 3000;
 // import routers
 const signupRouter = require('./routes/signupRouter');
 const loginRouter = require('./routes/loginRouter');
-const sessionController = require('./controllers/sessionController');
 const homeRouter = require('./routes/homeRouter');
+const friendsRouter = require('./routes/friendsRouter');
+const sessionController = require('./controllers/sessionController');
 
 // handle json parsing
 app.use(express.json());
@@ -20,6 +21,7 @@ app.use(cookieParser());
 app.use('/assets', express.static(path.resolve(__dirname, '../client/assets')));
 
 // route to the signup page:
+app.use('/api/friendRequest', friendsRouter);
 app.use('/api/signup', signupRouter);
 app.use('/api/login', loginRouter);
 app.use('/api/home', homeRouter);
