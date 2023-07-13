@@ -3,11 +3,14 @@ import image from '../assets/images/discord-gold.jpg';
 
 export const SwipeComponenet = ({ swipeUser }) => {
   const currentUser = { ...swipeUser };
-
   return (
     <>
       <div className="swipe-profile">
-        <img className="swipe-image" src={image} alt="" />
+        <img
+          className="swipe-image"
+          src={`/assets/images/${currentUser.profilePicture}`}
+          alt=""
+        />
         <div className="swipe-info">
           <p className="swipe-text" id="swipe-name">
             <span id="username-text">Username:</span> <br />

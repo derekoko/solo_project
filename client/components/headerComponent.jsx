@@ -1,11 +1,10 @@
 import React from 'react';
 
-export const HeaderComponenet = () => {
+export const HeaderComponenet = ({ user }) => {
   return (
     <>
       <div className="header-pic-container">
-        filler 1
-        <img id="prof-pic" src="" alt="" />
+        <button id="profile-button">{user.username}</button>
       </div>
       <div className="header-info-container">
         <button className="header-button" id="light-mode">

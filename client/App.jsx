@@ -1,5 +1,6 @@
 import React from 'react';
 import './styling/styles.scss';
+import './styling/headerStyles.scss';
 import { Routes, Route } from 'react-router-dom';
 import { LoginPage } from './pages/Login';
 import { Signup } from './pages/Signup';

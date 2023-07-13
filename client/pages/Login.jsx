@@ -3,20 +3,26 @@ import { useNavigate } from 'react-router';
 import { useEffect, useState } from 'react';
 
 export const LoginPage = () => {
-  // const navigate = useNavigate();
-  // useEffect(async () => {
-  //   const response = await fetch('/api/login');
-  //   if (response.ok) {
-  //     const data = await response.json();
-  //     if (data.body) {
-  //       navigate('/home');
+  const navigate = useNavigate();
+  // useEffect(() => {
+  //   const fetcher = async () => {
+  //     const response = await fetch('/api', {
+  //       type: 'GET',
+  //     });
+  //     if (response.ok) {
+  //       const data = await response.json();
+  //       if (data.body) {
+  //         navigate('/home');
+  //       } else {
+  //         navigate('/signup');
+  //       }
   //     } else {
-  //       navigate('/signup');
+  //       alert('bad response');
   //     }
-  //   } else {
-  //     alert('bad response');
-  //   }
+  //   };
+  //   fetcher();
   // }, []);
+
   return (
     <div className="login-container">
       Login
@@ -29,3 +35,5 @@ export const LoginPage = () => {
     </div>
   );
 };
+
+//use context. see if a user has been logged into use context. before you load a componenet you could route them.

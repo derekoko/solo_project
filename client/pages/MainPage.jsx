@@ -15,6 +15,7 @@ export const MainPage = () => {
     }
     fetcher();
   }, []);
+  console.log(user);
 
   return (
     <>

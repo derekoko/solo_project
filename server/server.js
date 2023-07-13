@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // serve a static file to the html.
-// app.use('/home', express.static(path.resolve(__dirname, '../client/assets')));
+app.use('/assets', express.static(path.resolve(__dirname, '../client/assets')));
 
 // route to the signup page:
 app.use('/api/signup', signupRouter);
@@ -26,9 +26,9 @@ app.use('/api/home', homeRouter);
 // if they are verified or not we will send the response values of true or false to the front page.
 app.use('/api', sessionController.isLoggedIn, (req, res) => {
   if (res.locals.ssid) {
-    return res.status(200).redirect('/home');
+    return res.status(200).json(res.locals.ssid);
   }
-  return res.sendStatus(400);
+  return res.status(400).json(res.locals.ssid);
 });
 
 // 404 handler:

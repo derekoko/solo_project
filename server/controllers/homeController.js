@@ -15,7 +15,7 @@ const createErr = (errInfo) => {
 homeController.getUserData = async function (req, res, next) {
   try {
     const userID = req.cookies.ssid;
-    const found = await User.findById('64af1bcfecf2ad24be003631');
+    const found = await User.findById(userID);
 
     res.locals.user = found;
 
@@ -32,7 +32,9 @@ homeController.getUserData = async function (req, res, next) {
 
 homeController.getUsers = async function (req, res, next) {
   try {
-    const found = await User.find().limit(10);
+    const ssid = req.cookies.ssid;
+    const found = await User.find({ _id: { $nin: ssid } }).limit(10);
+    console.log(found);
     res.locals.users = found;
     return next();
   } catch (error) {

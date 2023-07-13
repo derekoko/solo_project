@@ -1,12 +1,26 @@
-body {
-  margin: 0px;
-  background-color: rgb(255, 241, 241);
+html {
+  min-height: 100%;
+  position: relative;
 }
-
-.header-container {
-  display: flex;
-  background-color: lightpink;
-  justify-content: space-between;
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  background-image: linear-gradient(
+    to bottom,
+    #d7f2ff,
+    #cfeeff,
+    #c7eaff,
+    #c0e5ff,
+    #bae1ff,
+    #b0e0ff,
+    #a5defe,
+    #99ddfd,
+    #86def8,
+    #74dff0,
+    #67dfe5,
+    #60ded6
+  );
 }
 
 .swipe-image {
@@ -18,7 +32,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgba(196, 183, 199, 0.242);
 }
 
 .swipe-container {
