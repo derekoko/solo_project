@@ -16,25 +16,24 @@ homeController.getUserData = async function (req, res, next) {
   try {
     const userID = req.cookies.ssid;
     const found = await User.findById('64af1bcfecf2ad24be003631');
-    // console.log(`Found data: ${found.username}`);
-    const {
-      username,
-      profilePicture,
-      playStyle,
-      games,
-      favorites,
-      friendsList,
-    } = found;
-    const user = {
-      username,
-      profilePicture,
-      playStyle,
-      games,
-      favorites,
-      friendsList,
-    };
+
     res.locals.user = found;
-    // console.log(`The user: ${user}`);
+
+    return next();
+  } catch (error) {
+    const newErr = createErr({
+      method: 'getUserData',
+      type: 'GET',
+      err: error,
+    });
+    return next(newErr);
+  }
+};
+
+homeController.getUsers = async function (req, res, next) {
+  try {
+    const found = await User.find().limit(10);
+    res.locals.users = found;
     return next();
   } catch (error) {
     const newErr = createErr({

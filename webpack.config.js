@@ -76,7 +76,7 @@ module.exports = {
             loader: 'url-loader',
             options: {
               // if file is greater than the limit (bytes), file-loader is used as fallback
-              limit: 8192,
+              // limit: 8192,
             },
           },
         ],
