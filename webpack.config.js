@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
   mode: process.env.NODE_ENV,
   devtool: 'eval-source-map',
-  entry: './client/index.js', // Update the entry path
+  entry: './client/scripts/index.js', // Update the entry path
   output: {
     path: path.resolve(__dirname, 'dist'), // Replace with your desired output directory
     publicPath: '/',
@@ -30,14 +30,19 @@ module.exports = {
      * to localhost:3000/api/* (where our Express server is running)
      */
     proxy: {
-      '/api/**': {
+      '/api': {
         target: 'http://localhost:3000/',
         secure: false,
       },
-      '/assets/**': {
+      '/assets': {
         target: 'http://localhost:3000/',
         secure: false,
       },
+      // },
+      // '/signup': {
+      //   target: 'http://localhost:3000/',
+      //   secure: false,
+      // },
     },
   },
   module: {
@@ -69,10 +74,11 @@ module.exports = {
         use: [
           {
             // loads files as base64 encoded data url if image file is less than set limit
-            loader: 'url-loader',
+            loader: 'file-loader',
+            // loader: 'url-loader',
             options: {
               // if file is greater than the limit (bytes), file-loader is used as fallback
-              limit: 8192,
+              // limit: 8192,
             },
           },
         ],

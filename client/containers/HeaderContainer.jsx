@@ -1,20 +1,18 @@
 import React from 'react';
+import { HeaderComponenet } from '../components/headerComponent';
 
-export default function HeaderContainer() {
+export default function HeaderContainer({
+  user,
+  setFriendClick,
+  friendClicked,
+}) {
   return (
-    <header className="header-container">
-      <div className="header-pic-container">
-        filler 1
-        <img id="prof-pic" src="" alt="" />
-      </div>
-      <div className="header-info-container">
-        <button className="header-button" id="light-mode">
-          test
-        </button>
-        <button className="header-button" id="burger-menu">
-          test
-        </button>
-      </div>
-    </header>
+    <>
+      <HeaderComponenet
+        user={user}
+        setFriendClick={setFriendClick}
+        friendClicked={friendClicked}
+      />
+    </>
   );
 }

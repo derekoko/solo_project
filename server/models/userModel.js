@@ -4,6 +4,8 @@ const Schema = mongoose.Schema;
 const SALT_WORK_FACTOR = 10;
 const bcrypt = require('bcryptjs');
 
+// mongorestore -d=matchMadeReady --uri="mongodb+srv://dkderekkoh:hwtfdMZMfR4lM9tw@solocluster.kmnksqz.mongodb.net/?retryWrites=true&w=majority"
+
 const MONGO_URI =
   'mongodb+srv://dkderekkoh:hwtfdMZMfR4lM9tw@solocluster.kmnksqz.mongodb.net/?retryWrites=true&w=majority';
 
@@ -25,9 +27,9 @@ const userSchema = new Schema(
     bio: String,
     gender: String,
     playStyle: [{ type: Schema.Types.ObjectId, ref: 'style' }],
-    games: [{ type: Schema.Types.ObjectId, ref: 'game' }],
-    favorites: [{ type: Schema.Types.ObjectId, ref: 'friend' }],
-    friendsList: [{ type: Schema.Types.ObjectId, ref: 'friend' }],
+    games: Array,
+    favorites: [{ type: Schema.Types.ObjectId, ref: 'friendsList' }],
+    friendsList: { type: Schema.Types.ObjectId, ref: 'friends' },
   },
   { timestamps: true }
 );
