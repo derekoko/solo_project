@@ -11,16 +11,16 @@ export const SwipeContainer = ({ users, user }) => {
   const handleAccept = () => {
     if (users && users[0]) {
       setIndex(index + 1);
-      const data = {
-        requestee_id: users[index]._id,
-        requester_id: user._id,
-      };
-      fetch('/api/friendRequest', {
-        headers: { 'Content-Type': 'application/json' },
-        method: 'POST',
-        mode: 'cors',
-        body: JSON.stringify(data),
-      });
+      // const data = {
+      //   requestee_id: users[index]._id,
+      //   requester_id: user._id,
+      // };
+      // fetch('/api/friendRequest', {
+      //   headers: { 'Content-Type': 'application/json' },
+      //   method: 'POST',
+      //   mode: 'cors',
+      //   body: JSON.stringify(data),
+      // });
 
       if (accept) {
         setAccept(false);
