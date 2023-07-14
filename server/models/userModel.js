@@ -29,7 +29,7 @@ const userSchema = new Schema(
     playStyle: [{ type: Schema.Types.ObjectId, ref: 'style' }],
     games: Array,
     favorites: [{ type: Schema.Types.ObjectId, ref: 'friendsList' }],
-    friendsList: [{ type: Schema.Types.ObjectId, ref: 'friend' }],
+    friendsList: { type: Schema.Types.ObjectId, ref: 'friends' },
   },
   { timestamps: true }
 );

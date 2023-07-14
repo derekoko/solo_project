@@ -68,23 +68,18 @@ userController.signup = async function (req, res, next) {
 userController.createAccount = async function (req, res, next) {
   try {
     const currentId = req.cookies.ssid;
-    const { username, profilePicture, userGame } = req.body;
+    const { username, profilePicture, userGame, bio } = req.body;
     const exist = await User.findOne({ username: username });
     if (exist) {
       throw new Error('Username already exists please try another name.');
     }
-    // const found = await User.findById(currentId);
-    const newUser = {
-      username: username,
-      profilePicture: profilePicture,
-      games: [userGame],
-    };
     await User.findOneAndUpdate(
       { _id: currentId },
       {
         username: username,
         profilePicture: profilePicture,
         games: [userGame],
+        bio: bio,
       },
       { new: true }
     );

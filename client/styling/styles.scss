@@ -153,3 +153,46 @@ body {
   flex-direction: column;
   border: 1px solid black;
 }
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border: 2px solid #99ddfd;
+  box-shadow: 1px 1px 1px 1px #2b6f84;
+  width: 400px;
+  height: 400px;
+  font-size: 2vw;
+}
+
+.signup-container input {
+  width: 20vw;
+  border-radius: 7px;
+}
+
+.create-main-container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.create-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #99ddfd;
+  box-shadow: 1px 1px 1px 1px #2b6f84;
+  width: 700px;
+  height: 700px;
+  font-size: 2vw;
+}
+
+.create-container input {
+  width: 500px;
+  border-radius: 7px;
+  font-size: 24px;
+}
